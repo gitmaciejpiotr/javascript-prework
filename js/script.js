@@ -1,8 +1,9 @@
-let checkboxID = "";
+let playerScore = 0;
+let computerScore = 0;
+let whichRivalFlag = 0;
+let elementID = '';
 
 function playGame(playerInput) {
-    // uncheck(checkboxID);
-    
 
     function getMoveName(argMoveId) {
         if (argMoveId == 1) {
@@ -32,6 +33,17 @@ function playGame(playerInput) {
     //         printMessage('Przegrałeś :<');
     //     }
     // }
+    function countScore(computerNum, playerNum) {
+        if (computerNum > playerNum) {
+            whichRivalFlag = 0;
+            return computerScore++;
+        } else if (computerNum < playerNum) {
+            whichRivalFlag = 1;
+            return playerScore++;
+        } else {
+            return 0;
+        }
+    }
 
     let randomNumber = Math.floor(Math.random() * 3 + 1);
 
@@ -43,9 +55,21 @@ function playGame(playerInput) {
 
     console.log('Gracz wpisał: ' + playerInput);
 
+    let score = countScore(randomNumber, playerInput);
+
+    if (whichRivalFlag == 0) {
+        elementID = 'computerScore';
+    } else {
+        elementID = 'playerScore';
+    }
+
+    if (score != 0){
+        printScore(score, elementID);
+    }
+
     let playerMove = getMoveName(playerInput);
 
-    checkboxID = computerMove + '-' + playerMove;
+    let checkboxID = computerMove + '-' + playerMove;
 
     check(checkboxID);
 
@@ -65,4 +89,5 @@ document.getElementById('play-scissors').addEventListener('click', function () {
 });
 document.getElementById('resetInput').addEventListener('click', function () {
     clearMessages();
+    clearScore(elementID);
 });

@@ -38,6 +38,26 @@ body,
 
 }
 
+/* Scores */
+
+#scores {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    position: absolute;
+    top: 35%;
+}
+
+.scoreKeeper {
+    margin: 0 40px 0 40px;
+}
+
+.scoreKeeper div {
+    font-family: 'Press Start 2P', serif;
+    font-size: 40px;
+}
+
 
 /* Options */
 
@@ -371,7 +391,7 @@ input:checked~div .hand {
 }
 
 .hand {
-    margin: 20px;
+    margin: 50px;
     width: 200px;
     height: 200px;
     position: relative;

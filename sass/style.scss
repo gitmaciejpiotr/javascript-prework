@@ -16,6 +16,33 @@
     top: 15%;
 }
 
+#buttons .btnBackground {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+#buttons .btnBackground .gesture {
+    position: absolute;
+    z-index: 1;
+    height: 170px;
+    width: 170px;
+    font-size: 160px;
+    transition: 0.4s;
+    opacity: 0;
+}
+
+#buttons .btnBackground:hover .gesture {
+    opacity: 1;
+}
+
+#buttons .btnBackground button {
+    position: absolute;
+    z-index: 2;
+}
+
 /* R-P-S from CodePen */
 
 @import url('https://fonts.googleapis.com/css?family=Acme&display=swap');

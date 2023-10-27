@@ -2,7 +2,7 @@ let checkboxID = "";
 
 function playGame(playerInput) {
     // uncheck(checkboxID);
-    clearMessages();
+    
 
     function getMoveName(argMoveId) {
         if (argMoveId == 1) {
@@ -17,21 +17,21 @@ function playGame(playerInput) {
         return 'nieznany ruch';
     }
 
-    function displayResult(argComputerMove, argPlayerMove) {
-        if (argComputerMove == 'rock' && argPlayerMove == 'paper') {
-            printMessage('Wygrałeś!');
-        } else if (argComputerMove == 'paper' && argPlayerMove == 'scissors') {
-            printMessage('Wygrałeś!');
-        } else if (argComputerMove == 'scissors' && argPlayerMove == 'rock') {
-            printMessage('Wygrałeś!');
-        } else if (argComputerMove == argPlayerMove) {
-            printMessage('Remis!');
-        } else if (argPlayerMove == 'nieznany ruch' || argComputerMove == 'nieznany ruch') {
-            printMessage('Niestety ktoś z nas wykonał nieznany ruch :/');
-        } else {
-            printMessage('Przegrałeś :<');
-        }
-    }
+    // function displayResult(argComputerMove, argPlayerMove) {
+    //     if (argComputerMove == 'rock' && argPlayerMove == 'paper') {
+    //         printMessage('Wygrałeś!');
+    //     } else if (argComputerMove == 'paper' && argPlayerMove == 'scissors') {
+    //         printMessage('Wygrałeś!');
+    //     } else if (argComputerMove == 'scissors' && argPlayerMove == 'rock') {
+    //         printMessage('Wygrałeś!');
+    //     } else if (argComputerMove == argPlayerMove) {
+    //         printMessage('Remis!');
+    //     } else if (argPlayerMove == 'nieznany ruch' || argComputerMove == 'nieznany ruch') {
+    //         printMessage('Niestety ktoś z nas wykonał nieznany ruch :/');
+    //     } else {
+    //         printMessage('Przegrałeś :<');
+    //     }
+    // }
 
     let randomNumber = Math.floor(Math.random() * 3 + 1);
 
@@ -39,7 +39,7 @@ function playGame(playerInput) {
 
     let computerMove = getMoveName(randomNumber);
 
-    printMessage('Mój ruch to: ' + computerMove);
+    printMessage('Mój ruch:');
 
     console.log('Gracz wpisał: ' + playerInput);
 
@@ -49,7 +49,7 @@ function playGame(playerInput) {
 
     check(checkboxID);
 
-    printMessage('Twój ruch to: ' + playerMove);
+    printMessage('Twój ruch:');
 
     displayResult(computerMove, playerMove);
 }
@@ -62,4 +62,7 @@ document.getElementById('play-paper').addEventListener('click', function () {
 });
 document.getElementById('play-scissors').addEventListener('click', function () {
     playGame('3');
+});
+document.getElementById('resetInput').addEventListener('click', function () {
+    clearMessages();
 });

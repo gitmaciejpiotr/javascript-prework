@@ -116,6 +116,15 @@
     z-index: 2;
 }
 
+#messages {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 60%;
+    position: absolute;
+    top: 25%;
+}
+
 /* R-P-S from CodePen */
 
 @import url('https://fonts.googleapis.com/css?family=Acme&display=swap');
@@ -269,17 +278,17 @@ input[id^="paper"]:checked ~ div #computer-hand .finger-4 {
 #rock-rock:checked ~ div h2::before,
 #paper-paper:checked ~ div h2::before,
 #scissors-scissors:checked ~ div h2::before {
-  content: "You Tied!"
+  content: "Remis!"
 }
 #rock-paper:checked ~ div h2::before,
 #paper-scissors:checked ~ div h2::before,
 #scissors-rock:checked ~ div h2::before {
-  content: "You Win!"
+  content: "Wygrałeś!"
 }
 #rock-scissors:checked ~ div h2::before,
 #paper-rock:checked ~ div h2::before,
 #scissors-paper:checked ~ div h2::before {
-  content: "Computer Wins!"
+  content: "Wygrałem!"
 }
 
 #message {
@@ -298,10 +307,7 @@ input:checked ~ #message {
 }
 
 #icons {
-  width: 30px;
-  height: 200px;
   display: none;
-  flex-direction: column;
 }
 
 #icons > div {

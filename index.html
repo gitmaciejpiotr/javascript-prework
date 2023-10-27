@@ -1,90 +1,98 @@
 <!DOCTYPE html>
 <html lang="pl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kamień, papier, nożyce</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
-    <div class="container">
-        <div id="buttons">
-            <div class="btnBackground">
-                <div class="gesture">✊</div>
-                <button type="button" id="play-rock">Kamień</button>
-            </div>
-            <div class="btnBackground">
-                <div class="gesture">🖐️</div>
-                <button type="button" id="play-paper">Papier</button>
-            </div>
-            <div class="btnBackground">
-                <div class="gesture">✌</div>
-                <button type="button" id="play-scissors">Nożyce</button>
-            </div>
-        </div>
-        <div id="messages"></div>
-    </div>
-    <form>
 
-        <input type="radio" id="rock-rock" name="rock-paper-scissors">
-        <input type="radio" id="rock-paper" name="rock-paper-scissors">
-        <input type="radio" id="rock-scissors" name="rock-paper-scissors">
-        <input type="radio" id="paper-rock" name="rock-paper-scissors">
-        <input type="radio" id="paper-paper" name="rock-paper-scissors">
-        <input type="radio" id="paper-scissors" name="rock-paper-scissors">
-        <input type="radio" id="scissors-rock" name="rock-paper-scissors">
-        <input type="radio" id="scissors-paper" name="rock-paper-scissors">
-        <input type="radio" id="scissors-scissors" name="rock-paper-scissors">
-      
-        <div>
-          <div id="hands">
-            <div class="hand" id="computer-hand">
-              <div class="fist"></div>
-              <div class="finger finger-1"></div>
-              <div class="finger finger-2"></div>
-              <div class="finger finger-3"></div>
-              <div class="finger finger-4"></div>
-              <div class="thumb"></div>
-              <div class="arm"></div>
+<body>
+    <div class="cloud-container">
+        <div id="cloud-intro">
+            <div class="container">
+                <div id="buttons">
+                    <div class="btnBackground">
+                        <div class="gesture">✊</div>
+                        <button type="button" id="play-rock">Kamień</button>
+                    </div>
+                    <div class="btnBackground">
+                        <div class="gesture">🖐️</div>
+                        <button type="button" id="play-paper">Papier</button>
+                    </div>
+                    <div class="btnBackground">
+                        <div class="gesture">✌</div>
+                        <button type="button" id="play-scissors">Nożyce</button>
+                    </div>
+                </div>
+                <div id="messages"></div>
             </div>
-      
-            <div class="hand" id="user-hand">
-              <div class="fist"></div>
-              <div class="finger finger-1"></div>
-              <div class="finger finger-2"></div>
-              <div class="finger finger-3"></div>
-              <div class="finger finger-4"></div>
-              <div class="thumb"></div>
-              <div class="arm"></div>
-            </div>
-            
-            <div id="icons">
-              <div>
-                <label for="rock-rock">✊</label>
-                <label for="paper-rock">✊</label>
-                <label for="scissors-rock">✊</label>
-              </div>
-              <div>
-                <label for="rock-paper">🖐️</label>
-                <label for="paper-paper">🖐️</label>
-                <label for="scissors-paper">🖐️</label>
-              </div>
-              <div>
-                <label for="rock-scissors">✌</label>
-                <label for="paper-scissors">✌</label>
-                <label for="scissors-scissors">✌</label>
-              </div>
-            </div>
-          </div>
+            <form>
+        
+                <input type="radio" id="rock-rock" name="rock-paper-scissors">
+                <input type="radio" id="rock-paper" name="rock-paper-scissors">
+                <input type="radio" id="rock-scissors" name="rock-paper-scissors">
+                <input type="radio" id="paper-rock" name="rock-paper-scissors">
+                <input type="radio" id="paper-paper" name="rock-paper-scissors">
+                <input type="radio" id="paper-scissors" name="rock-paper-scissors">
+                <input type="radio" id="scissors-rock" name="rock-paper-scissors">
+                <input type="radio" id="scissors-paper" name="rock-paper-scissors">
+                <input type="radio" id="scissors-scissors" name="rock-paper-scissors">
+        
+                <div>
+                    <div id="hands">
+                        <div class="hand" id="computer-hand">
+                            <div class="fist"></div>
+                            <div class="finger finger-1"></div>
+                            <div class="finger finger-2"></div>
+                            <div class="finger finger-3"></div>
+                            <div class="finger finger-4"></div>
+                            <div class="thumb"></div>
+                            <div class="arm"></div>
+                        </div>
+        
+                        <div class="hand" id="user-hand">
+                            <div class="fist"></div>
+                            <div class="finger finger-1"></div>
+                            <div class="finger finger-2"></div>
+                            <div class="finger finger-3"></div>
+                            <div class="finger finger-4"></div>
+                            <div class="thumb"></div>
+                            <div class="arm"></div>
+                        </div>
+        
+                        <div id="icons">
+                            <div>
+                                <label for="rock-rock">✊</label>
+                                <label for="paper-rock">✊</label>
+                                <label for="scissors-rock">✊</label>
+                            </div>
+                            <div>
+                                <label for="rock-paper">🖐️</label>
+                                <label for="paper-paper">🖐️</label>
+                                <label for="scissors-paper">🖐️</label>
+                            </div>
+                            <div>
+                                <label for="rock-scissors">✌</label>
+                                <label for="paper-scissors">✌</label>
+                                <label for="scissors-scissors">✌</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        
+                <div id="message">
+                    <h2></h2>
+                    <button class="learn-more" id="resetInput" type="reset">Jeszcze raz!</button>
+                </div>
+        
+            </form>
         </div>
-      
-        <div id="message">
-          <h2></h2>
-          <button class="learn-more" id="resetInput" type="reset">Jeszcze raz!</button>
-        </div>
-      
-      </form>
+    </div>
+    
     <script src="js/functions.js"></script>
     <script src="js/script.js"></script>
 </body>
+
 </html>

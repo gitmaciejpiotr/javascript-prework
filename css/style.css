@@ -1,3 +1,289 @@
+@import url("https://fonts.googleapis.com/css?family=Acme&display=swap");
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: 100vh;
+}
 
+#buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 80%;
+  position: absolute;
+  top: 15%;
+}
 
-/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzdHlsZS5jc3MifQ== */
+/* R-P-S from CodePen */
+@keyframes changeOrder {
+  from {
+    z-index: 9;
+  }
+  to {
+    z-index: 1;
+  }
+}
+@keyframes handShake {
+  0%, 100% {
+    transform: rotate(10deg);
+  }
+  50% {
+    transform: rotate(-10deg);
+  }
+}
+@keyframes handShake2 {
+  0%, 100% {
+    transform: rotateY(180deg) rotate(10deg);
+  }
+  50% {
+    transform: rotateY(180deg) rotate(-10deg);
+  }
+}
+html, body {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  line-height: 1;
+  font-family: Acme, Arial, sans-serif;
+}
+
+form {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+h1 {
+  text-align: center;
+}
+
+#hands {
+  text-align: center;
+}
+
+input:checked ~ div .hand {
+  animation: none !important;
+}
+
+.hand {
+  margin: 20px;
+  width: 200px;
+  height: 200px;
+  position: relative;
+  transform: rotate(10deg);
+  display: inline-block;
+  animation: handShake 2s infinite;
+}
+
+.hand > div {
+  position: absolute;
+  box-sizing: border-box;
+  border: 2px solid black;
+  background: gold;
+  transition: all 0.1s;
+}
+
+.fist {
+  height: 110px;
+  left: 40px;
+  top: 50px;
+  width: 90px;
+  border-radius: 20px 0 0 20px;
+}
+
+.finger {
+  width: 70px;
+  height: 30px;
+  border-radius: 20px;
+  left: 80px;
+  transform-origin: 0 50%;
+}
+
+.finger-1 {
+  top: 50px;
+  --dif: 0px;
+}
+
+.finger-2 {
+  top: 78px;
+  left: 84px;
+  --dif: 4px;
+}
+
+.finger-3 {
+  top: 106px;
+  --dif: 0px;
+}
+
+.finger-4 {
+  top: 134px;
+  height: 26px;
+  left: 76px;
+  --dif: -8px;
+}
+
+div.thumb {
+  width: 35px;
+  height: 70px;
+  border-radius: 0 20px 20px 20px;
+  top: 50px;
+  left: 80px;
+  border-left: 0 solid;
+  box-shadow: -17px 6px 0 -15px black;
+}
+
+div.arm {
+  width: 22px;
+  height: 70px;
+  left: 20px;
+  top: 70px;
+  border: 0;
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+}
+
+#user-hand {
+  transform: rotateY(180deg);
+  animation: handShake2 2s infinite;
+  position: relative;
+}
+
+input[type=radio] {
+  position: absolute;
+  top: -1000in;
+  left: -1000in;
+}
+
+input[id$=scissors]:checked ~ div #user-hand .finger-1,
+input[id^=scissors]:checked ~ div #computer-hand .finger-1 {
+  width: 130px;
+  transform: rotate(-5deg);
+}
+
+input[id$=scissors]:checked ~ div #user-hand .finger-2,
+input[id^=scissors]:checked ~ div #computer-hand .finger-2 {
+  width: 130px;
+  transform: rotate(5deg);
+}
+
+input[id$=paper]:checked ~ div #user-hand .finger-1,
+input[id$=paper]:checked ~ div #user-hand .finger-2,
+input[id$=paper]:checked ~ div #user-hand .finger-3,
+input[id$=paper]:checked ~ div #user-hand .finger-4,
+input[id^=paper]:checked ~ div #computer-hand .finger-1,
+input[id^=paper]:checked ~ div #computer-hand .finger-2,
+input[id^=paper]:checked ~ div #computer-hand .finger-3,
+input[id^=paper]:checked ~ div #computer-hand .finger-4 {
+  left: 124px;
+  left: calc(124px + var(--dif));
+  width: 80px;
+  border-left: 0;
+  border-radius: 0 20px 20px 0;
+}
+
+#rock-rock:checked ~ div h2::before,
+#paper-paper:checked ~ div h2::before,
+#scissors-scissors:checked ~ div h2::before {
+  content: "You Tied!";
+}
+
+#rock-paper:checked ~ div h2::before,
+#paper-scissors:checked ~ div h2::before,
+#scissors-rock:checked ~ div h2::before {
+  content: "You Win!";
+}
+
+#rock-scissors:checked ~ div h2::before,
+#paper-rock:checked ~ div h2::before,
+#scissors-paper:checked ~ div h2::before {
+  content: "Computer Wins!";
+}
+
+#message {
+  text-align: center;
+  display: none;
+}
+
+input:checked ~ #message {
+  display: block;
+}
+
+#hands {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#icons {
+  width: 30px;
+  height: 200px;
+  display: inline-flex;
+  flex-direction: column;
+}
+
+#icons > div {
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  overflow: hidden;
+  position: relative;
+}
+
+label:active {
+  position: static;
+  margin-left: 60px;
+}
+
+label:active::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 60px;
+  z-index: 10;
+  height: 60px;
+}
+
+label {
+  animation: changeOrder 0.45s infinite linear;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: block;
+  height: 60px;
+  width: 60px;
+  line-height: 60px;
+  font-size: 2rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+
+label:nth-of-type(1) {
+  animation-delay: 0s;
+}
+
+label:nth-of-type(2) {
+  animation-delay: -0.15s;
+}
+
+label:nth-of-type(3) {
+  animation-delay: -0.3s;
+}
+
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uL3Nhc3Mvc3R5bGUuc2NzcyIsInN0eWxlLmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFvQlEsd0VBQUE7QUFwQlI7RUFDSSxhQUFBO0VBQ0Esc0JBQUE7RUFDQSx1QkFBQTtFQUNBLG1CQUFBO0VBQ0Esa0JBQUE7RUFDQSxhQUFBO0FDRUo7O0FEQ0E7RUFDSSxhQUFBO0VBQ0EsbUJBQUE7RUFDQSw2QkFBQTtFQUNBLFVBQUE7RUFDQSxrQkFBQTtFQUNBLFFBQUE7QUNFSjs7QURDQSx1QkFBQTtBQUlBO0VBQ0U7SUFBTyxVQUFBO0VDQVA7RURDQTtJQUFLLFVBQUE7RUNFTDtBQUNGO0FEQUE7RUFDRTtJQUFVLHdCQUFBO0VDR1Y7RURGQTtJQUFNLHlCQUFBO0VDS047QUFDRjtBREhBO0VBQ0U7SUFBVSx3Q0FBQTtFQ01WO0VETEE7SUFBTSx5Q0FBQTtFQ1FOO0FBQ0Y7QUROQTtFQUNFLFNBQUE7RUFDQSxVQUFBO0VBQ0EsU0FBQTtFQUNBLGNBQUE7RUFDQSxvQ0FBQTtBQ1FGOztBRExBO0VBQ0Usa0JBQUE7RUFDQSxNQUFBO0VBQ0EsUUFBQTtFQUNBLFNBQUE7RUFDQSxPQUFBO0VBQ0EsYUFBQTtFQUNBLG1CQUFBO0VBQ0EsdUJBQUE7RUFDQSxzQkFBQTtBQ1FGOztBRExBO0VBQ0Usa0JBQUE7QUNRRjs7QURMQTtFQUNFLGtCQUFBO0FDUUY7O0FETEE7RUFDRSwwQkFBQTtBQ1FGOztBRExBO0VBQ0UsWUFBQTtFQUNBLFlBQUE7RUFDQSxhQUFBO0VBQ0Esa0JBQUE7RUFDQSx3QkFBQTtFQUNBLHFCQUFBO0VBQ0EsZ0NBQUE7QUNRRjs7QURMQTtFQUNFLGtCQUFBO0VBQ0Esc0JBQUE7RUFDQSx1QkFBQTtFQUNBLGdCQUFBO0VBQ0Esb0JBQUE7QUNRRjs7QURMQTtFQUNFLGFBQUE7RUFDQSxVQUFBO0VBQ0EsU0FBQTtFQUNBLFdBQUE7RUFDQSw0QkFBQTtBQ1FGOztBRExBO0VBQ0UsV0FBQTtFQUNBLFlBQUE7RUFDQSxtQkFBQTtFQUNBLFVBQUE7RUFDQSx1QkFBQTtBQ1FGOztBRExBO0VBQVksU0FBQTtFQUFXLFVBQUE7QUNVdkI7O0FEVEE7RUFBWSxTQUFBO0VBQVcsVUFBQTtFQUFZLFVBQUE7QUNlbkM7O0FEZEE7RUFBWSxVQUFBO0VBQVksVUFBQTtBQ21CeEI7O0FEbEJBO0VBQVksVUFBQTtFQUFZLFlBQUE7RUFBYyxVQUFBO0VBQVksV0FBQTtBQ3lCbEQ7O0FEdkJBO0VBQ0UsV0FBQTtFQUNBLFlBQUE7RUFFQSwrQkFBQTtFQUNBLFNBQUE7RUFDQSxVQUFBO0VBQ0Esb0JBQUE7RUFDQSxtQ0FBQTtBQ3lCRjs7QUR0QkE7RUFDRSxXQUFBO0VBQ0EsWUFBQTtFQUNBLFVBQUE7RUFDQSxTQUFBO0VBQ0EsU0FBQTtFQUNBLDJCQUFBO0VBQ0EsOEJBQUE7QUN5QkY7O0FEdEJBO0VBQ0UsMEJBQUE7RUFDQSxpQ0FBQTtFQUNBLGtCQUFBO0FDeUJGOztBRHRCQTtFQUNFLGtCQUFBO0VBQ0EsWUFBQTtFQUNBLGFBQUE7QUN5QkY7O0FEdEJBOztFQUVFLFlBQUE7RUFDQSx3QkFBQTtBQ3lCRjs7QUR0QkE7O0VBRUUsWUFBQTtFQUNBLHVCQUFBO0FDeUJGOztBRHRCQTs7Ozs7Ozs7RUFRRSxXQUFBO0VBQ0EsOEJBQUE7RUFDQSxXQUFBO0VBQ0EsY0FBQTtFQUNBLDRCQUFBO0FDeUJGOztBRHRCQTs7O0VBR0Usb0JBQUE7QUN5QkY7O0FEdkJBOzs7RUFHRSxtQkFBQTtBQzBCRjs7QUR4QkE7OztFQUdFLHlCQUFBO0FDMkJGOztBRHhCQTtFQUNFLGtCQUFBO0VBQ0EsYUFBQTtBQzJCRjs7QUR4QkE7RUFDRSxjQUFBO0FDMkJGOztBRHhCQTtFQUNFLGFBQUE7RUFDQSxtQkFBQTtFQUNBLHVCQUFBO0FDMkJGOztBRHhCQTtFQUNFLFdBQUE7RUFDQSxhQUFBO0VBQ0Esb0JBQUE7RUFDQSxzQkFBQTtBQzJCRjs7QUR4QkE7RUFDRSxPQUFBO0VBQ0EsbUJBQUE7RUFDQSx1QkFBQTtFQUNBLFdBQUE7RUFDQSxZQUFBO0VBQ0EsZ0JBQUE7RUFDQSxrQkFBQTtBQzJCRjs7QUR2QkE7RUFDRSxnQkFBQTtFQUNBLGlCQUFBO0FDMEJGOztBRHZCQTtFQUNFLFdBQUE7RUFDQSxrQkFBQTtFQUNBLE1BQUE7RUFDQSxPQUFBO0VBQ0EsV0FBQTtFQUNBLFdBQUE7RUFDQSxZQUFBO0FDMEJGOztBRHRCQTtFQUNFLDRDQUFBO0VBQ0EsbUJBQUE7RUFDQSxzQkFBQTtFQUNBLHNCQUFBO0VBQ0EsZUFBQTtFQUNBLGNBQUE7RUFDQSxZQUFBO0VBQ0EsV0FBQTtFQUNBLGlCQUFBO0VBQ0EsZUFBQTtFQUNBLGtCQUFBO0VBQ0EsTUFBQTtFQUNBLE9BQUE7RUFDQSx5QkFBQTtLQUFBLHNCQUFBO1VBQUEsaUJBQUE7QUN5QkY7O0FEdEJBO0VBQXVCLG1CQUFBO0FDMEJ2Qjs7QUR6QkE7RUFBdUIsdUJBQUE7QUM2QnZCOztBRDVCQTtFQUF1QixzQkFBQTtBQ2dDdkIiLCJmaWxlIjoic3R5bGUuY3NzIn0= */

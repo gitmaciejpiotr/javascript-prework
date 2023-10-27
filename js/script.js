@@ -1,13 +1,16 @@
+let checkboxID = "";
+
 function playGame(playerInput) {
+    // uncheck(checkboxID);
     clearMessages();
 
     function getMoveName(argMoveId) {
         if (argMoveId == 1) {
-            return 'kamień';
+            return 'rock';
         } else if (argMoveId == 2) {
-            return 'papier';
+            return 'paper';
         } else if (argMoveId == 3) {
-            return 'nożyce';
+            return 'scissors';
         }
 
         printMessage('Nie znam ruchu o id ' + argMoveId + '.');
@@ -15,11 +18,11 @@ function playGame(playerInput) {
     }
 
     function displayResult(argComputerMove, argPlayerMove) {
-        if (argComputerMove == 'kamień' && argPlayerMove == 'papier') {
+        if (argComputerMove == 'rock' && argPlayerMove == 'paper') {
             printMessage('Wygrałeś!');
-        } else if (argComputerMove == 'papier' && argPlayerMove == 'nożyce') {
+        } else if (argComputerMove == 'paper' && argPlayerMove == 'scissors') {
             printMessage('Wygrałeś!');
-        } else if (argComputerMove == 'nożyce' && argPlayerMove == 'kamień') {
+        } else if (argComputerMove == 'scissors' && argPlayerMove == 'rock') {
             printMessage('Wygrałeś!');
         } else if (argComputerMove == argPlayerMove) {
             printMessage('Remis!');
@@ -41,6 +44,10 @@ function playGame(playerInput) {
     console.log('Gracz wpisał: ' + playerInput);
 
     let playerMove = getMoveName(playerInput);
+
+    checkboxID = computerMove + '-' + playerMove;
+
+    check(checkboxID);
 
     printMessage('Twój ruch to: ' + playerMove);
 

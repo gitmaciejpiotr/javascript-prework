@@ -87,10 +87,14 @@
 }
 
 #buttons .btnBackground button:hover {
-    -webkit-animation:rainbow 1s infinite;
-    -ms-animation:rainbow 1s infinite;
-    -o-animation:rainbow 1s infinite;
-    animation:rainbow 1s infinite;
+    -webkit-animation:rainbow 1.5s infinite;
+    -ms-animation:rainbow 1.5s infinite;
+    -o-animation:rainbow 1.5s infinite;
+    animation:rainbow 1.5s infinite;
+}
+
+#buttons .btnBackground button:focus {
+    animation: none;
 }
 
 #buttons .btnBackground .gesture {
@@ -296,7 +300,7 @@ input:checked ~ #message {
 #icons {
   width: 30px;
   height: 200px;
-  display: inline-flex;
+  display: none;
   flex-direction: column;
 }
 

@@ -1,6 +1,6 @@
 let playerScore = 0;
 let computerScore = 0;
-let whichRivalFlag = 0;
+let whichRivalFlag = null;
 let elementID = '';
 
 function playGame(playerInput) {
@@ -36,10 +36,14 @@ function playGame(playerInput) {
     function countScore(computerNum, playerNum) {
         if (computerNum > playerNum) {
             whichRivalFlag = 0;
-            return computerScore++;
+            computerScore = computerScore + 1;
+            console.log('Wynik komputera: ' + computerScore);
+            return computerScore;
         } else if (computerNum < playerNum) {
             whichRivalFlag = 1;
-            return playerScore++;
+            playerScore = playerScore + 1;
+            console.log('Wynik gracza: ' + playerScore);
+            return playerScore;
         } else {
             return 0;
         }
@@ -57,13 +61,19 @@ function playGame(playerInput) {
 
     let score = countScore(randomNumber, playerInput);
 
+    console.log('Wynik: ' + score);
+    console.log('Flaga: ' + whichRivalFlag);
+
     if (whichRivalFlag == 0) {
         elementID = 'computerScore';
     } else {
         elementID = 'playerScore';
     }
 
-    if (score != 0){
+    console.log('Element ID: ' + elementID);
+
+    if (score !== 0){
+        clearScore(elementID);
         printScore(score, elementID);
     }
 
@@ -75,8 +85,11 @@ function playGame(playerInput) {
 
     printMessage('Twój ruch:');
 
-    displayResult(computerMove, playerMove);
+    // displayResult(computerMove, playerMove);
 }
+
+printScore(0, 'computerScore');
+printScore(0, 'playerScore');
 
 document.getElementById('play-rock').addEventListener('click', function () {
     playGame('1');
@@ -89,5 +102,4 @@ document.getElementById('play-scissors').addEventListener('click', function () {
 });
 document.getElementById('resetInput').addEventListener('click', function () {
     clearMessages();
-    clearScore(elementID);
 });

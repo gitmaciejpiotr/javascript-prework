@@ -14,9 +14,7 @@
             <div id="scores">
                 <div class="scoreKeeper">
                     <h1>Mój wynik:</h1>
-                    <div id="computerScore">
-                        
-                    </div>
+                    <div id="computerScore"></div>
                 </div>
                 <div class="scoreKeeper">
                     <h1>Twój wynik:</h1>
@@ -28,22 +26,21 @@
             <div class="container">
                 <div id="buttons">
                     <div class="btnBackground">
-                        <div class="gesture">✊</div>
                         <button type="button" id="play-rock">Kamień</button>
+                        <div class="gesture">✊</div>
                     </div>
                     <div class="btnBackground">
-                        <div class="gesture">🖐️</div>
                         <button type="button" id="play-paper">Papier</button>
+                        <div class="gesture">🖐️</div>
                     </div>
                     <div class="btnBackground">
-                        <div class="gesture">✌</div>
                         <button type="button" id="play-scissors">Nożyce</button>
+                        <div class="gesture">✌</div>
                     </div>
                 </div>
                 <div id="messages"></div>
             </div>
             <form>
-        
                 <input type="radio" id="rock-rock" name="rock-paper-scissors">
                 <input type="radio" id="rock-paper" name="rock-paper-scissors">
                 <input type="radio" id="rock-scissors" name="rock-paper-scissors">
@@ -53,7 +50,7 @@
                 <input type="radio" id="scissors-rock" name="rock-paper-scissors">
                 <input type="radio" id="scissors-paper" name="rock-paper-scissors">
                 <input type="radio" id="scissors-scissors" name="rock-paper-scissors">
-        
+
                 <div>
                     <div id="hands">
                         <div class="hand" id="computer-hand">
@@ -65,7 +62,7 @@
                             <div class="thumb"></div>
                             <div class="arm"></div>
                         </div>
-        
+
                         <div class="hand" id="user-hand">
                             <div class="fist"></div>
                             <div class="finger finger-1"></div>
@@ -75,7 +72,7 @@
                             <div class="thumb"></div>
                             <div class="arm"></div>
                         </div>
-        
+
                         <div id="icons">
                             <div>
                                 <label for="rock-rock">✊</label>
@@ -95,16 +92,17 @@
                         </div>
                     </div>
                 </div>
-        
+
                 <div id="message">
-                    <h2></h2>
+                    <h2><span>Sth</span></h2>
                     <button class="learn-more" id="resetInput" type="reset">Jeszcze raz!</button>
+                    <button class="submit" type="submit"></button>
                 </div>
-        
+
             </form>
         </div>
     </div>
-    
+
     <script src="js/functions.js"></script>
     <script src="js/script.js"></script>
 </body>

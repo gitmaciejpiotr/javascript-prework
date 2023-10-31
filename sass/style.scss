@@ -278,6 +278,10 @@ body,
     background: transparent;
     border: none;
     cursor: pointer;
+    position: absolute;
+    z-index: 2;
+    height: 170px;
+    width: 170px;
 }
 
 #buttons .btnBackground button:hover {
@@ -301,13 +305,8 @@ body,
     opacity: 0;
 }
 
-#buttons .btnBackground:hover .gesture {
+#buttons .btnBackground button:hover ~ .gesture {
     opacity: 1;
-}
-
-#buttons .btnBackground button {
-    position: absolute;
-    z-index: 2;
 }
 
 #messages {
@@ -527,6 +526,14 @@ input[id^="paper"]:checked~div #computer-hand .finger-4 {
 
 #message {
     text-align: center;
+    display: none;
+}
+
+#message h2 span {
+    display: none;
+}
+
+#message .submit {
     display: none;
 }
 

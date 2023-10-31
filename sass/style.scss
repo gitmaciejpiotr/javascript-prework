@@ -291,10 +291,12 @@ body,
     animation: rainbow 2.5s infinite;
 }
 
-#buttons .btnBackground button:focus {
+#buttons .btnBackground button:disabled {
     animation: none;
+    color: black;
+    cursor: default;
 }
-
+  
 #buttons .btnBackground .gesture {
     position: absolute;
     z-index: 1;
@@ -307,6 +309,10 @@ body,
 
 #buttons .btnBackground button:hover ~ .gesture {
     opacity: 1;
+}
+
+#buttons .btnBackground button:hover:disabled ~ .gesture {
+    opacity: 0;
 }
 
 #messages {

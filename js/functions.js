@@ -1,38 +1,34 @@
-function printMessage(msg) {
+const printMessage = function(msg) {
     let div = document.createElement('div');
     div.innerHTML = msg;
     document.getElementById('messages').appendChild(div);
 }
 
-function printScore(score, elementID) {
+const printScore = function(score, elementID) {
     let div = document.createElement('div');
     div.innerHTML = score;
     document.getElementById(elementID).appendChild(div);
 }
 
-function check(checkboxID) {
+const check = function(checkboxID) {
     document.getElementById(checkboxID).checked = true;
 }
 
-function uncheck(checkboxID) {
-    document.getElementById(myCheck).checked = false;
-}
-
-function clearMessages() {
+const clearMessages = function() {
     document.getElementById('messages').innerHTML = '';
 }
 
-function clearScore(elementID) {
+const clearScore = function(elementID) {
     document.getElementById(elementID).innerHTML = '';
 }
 
-function disableBtns() {
+const disableBtns = function() {
     document.getElementById('play-rock').disabled = true;
     document.getElementById('play-paper').disabled = true;
     document.getElementById('play-scissors').disabled = true;
 }
 
-function enableBtns() {
+const enableBtns = function() {
     document.getElementById('play-rock').disabled = false;
     document.getElementById('play-paper').disabled = false;
     document.getElementById('play-scissors').disabled = false;

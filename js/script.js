@@ -39,10 +39,10 @@
             }
         }
 
-        let randomNumber = Math.floor(Math.random() * 3 + 1);
-        let computerMove = getMoveName(randomNumber);
-        let playerMove = getMoveName(playerInput);
-        let score = countScore(computerMove, playerMove);
+        const randomNumber = Math.floor(Math.random() * 3 + 1);
+        const computerMove = getMoveName(randomNumber);
+        const playerMove = getMoveName(playerInput);
+        const score = countScore(computerMove, playerMove);
 
         if (whichRivalFlag == 0) {
             elementID = 'computerScore';
